@@ -27,7 +27,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- Configure Mason
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'eslint', 'intelephense', 'lua_ls', 'jsonls', 'yamlls', 'dockerls', 'sqlls', 'html', 'cssls', 'tailwindcss' },
+    ensure_installed = { 'eslint', 'intelephense', 'lua_ls', 'bashls', 'jsonls', 'yamlls', 'dockerls', 'sqlls', 'html', 'cssls', 'tailwindcss' },
     automatic_installation = true,
     handlers = {
         function(server_name)
