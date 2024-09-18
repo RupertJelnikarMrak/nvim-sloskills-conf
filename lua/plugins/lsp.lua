@@ -72,23 +72,6 @@ require('mason-lspconfig').setup({
                 capabilities = capabilities,
             })
         end,
-
-        tsserver = function()
-            require('lspconfig').tsserver.setup({
-                settings = {
-                    typescript = {
-                        tsdk = 'node_modules/typescript/lib',
-                        experimentalDecorators = true,
-                        allowJs = true,
-                    },
-                    javascript = {
-                        tsdk = 'node_modules/typescript/lib',
-                        experimentalDecorators = true,
-                        allowJs = true,
-                    },
-                },
-            })
-        end,
     },
 })
 
