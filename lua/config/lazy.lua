@@ -4,9 +4,9 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
     local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
     if vim.v.shell_error ~= 0 then
         vim.api.nvim_echo({
-          { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
-          { out, "WarningMsg" },
-          { "\nPress any key to exit..." },
+            { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+            { out,                            "WarningMsg" },
+            { "\nPress any key to exit..." },
         }, true, {})
         vim.fn.getchar()
         os.exit(1)
@@ -15,30 +15,24 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-    { 'nvim-telescope/telescope.nvim',  dependencies = { 'nvim-lua/plenary.nvim' } },
+    { 'nvim-telescope/telescope.nvim',       dependencies = { 'nvim-lua/plenary.nvim' } },
     { 'nvim-treesitter/nvim-treesitter' },
     { 'theprimeagen/harpoon' },
     { 'mbbill/undotree' },
     { 'tpope/vim-fugitive' },
-    { 'nvim-tree/nvim-tree.lua',     dependencies = { { 'kyazdani42/nvim-web-devicons' } } },
-    { 'nvim-lualine/lualine.nvim',   dependencies = { 'nvim-tree/nvim-web-devicons' } },
+    { 'nvim-tree/nvim-tree.lua',             dependencies = { { 'kyazdani42/nvim-web-devicons' } } },
+    { 'nvim-lualine/lualine.nvim',           dependencies = { 'nvim-tree/nvim-web-devicons' } },
     { "Djancyp/better-comments.nvim" },
     { 'numToStr/Comment.nvim' },
     { 'akinsho/toggleterm.nvim' },
     { 'lukas-reineke/indent-blankline.nvim', main = 'ibl' },
+    { "kylechui/nvim-surround", version = "*", event = "VeryLazy" },
     {
-      "folke/flash.nvim",
-      event = "VeryLazy",
-      ---@type Flash.Config
-      opts = {},
-      -- stylua: ignore
-      keys = {
-        { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "flash" },
-        { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
-        { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
-        { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-        { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
-      },
+        "folke/flash.nvim",
+        event = "VeryLazy",
+        ---@type Flash.Config
+        opts = {},
+        -- stylua: ignore
     },
 
     {
@@ -59,7 +53,7 @@ local plugins = {
         }
     },
 
-    { 'catppuccin/nvim', name = 'catppucin' },
+    { 'catppuccin/nvim',   name = 'catppucin' },
 
 
     { 'github/copilot.vim' },
