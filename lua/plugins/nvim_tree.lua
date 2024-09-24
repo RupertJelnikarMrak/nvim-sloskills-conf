@@ -19,6 +19,5 @@ local function opts(desc)
     return { desc = "nvim-tree: " .. desc, noremap = true, silent = true, nowait = true }
 end
 
-vim.keymap.set('n', '<C-n>', api.tree.toggle, opts("toggle"))
 vim.keymap.set('n', '<leader>pv', api.tree.open, opts("open"))
 vim.keymap.set('n', '<leader>vp', api.tree.close, opts("close"))

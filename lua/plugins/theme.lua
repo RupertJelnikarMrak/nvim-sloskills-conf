@@ -16,7 +16,7 @@ require('catppuccin').setup({
     },
 })
 
-color = color or 'catppuccin'
+local color = 'catppuccin'
 vim.cmd.colorscheme(color)
 
-vim.api.nvim_set_hl(0, 'CursorLine', { bg = 'NONE' })
+vim.api.nvim_set_hl(0, 'CursorLine', { bg = 'none' })
