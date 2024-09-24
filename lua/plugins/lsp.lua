@@ -27,7 +27,7 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 -- Configure Mason
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'eslint', 'intelephense', 'lua_ls', 'bashls', 'jsonls', 'yamlls', 'dockerls', 'sqlls', 'html', 'svelte', 'cssls', 'twiggy_language_server', 'tailwindcss' },
+    ensure_installed = { 'ts_ls', 'eslint', 'phpactor', 'lua_ls', 'bashls', 'emmet_language_server', 'jsonls', 'yamlls', 'dockerls', 'sqlls', 'html', 'svelte', 'cssls', 'tailwindcss' },
     automatic_installation = true,
     handlers = {
         function(server_name)
@@ -67,6 +67,13 @@ require('mason-lspconfig').setup({
             })
         end,
 
+        emmet_language_server = function()
+            require('lspconfig').emmet_language_server.setup({
+                capabilities = capabilities,
+                filetypes = { 'html', 'php' },
+            })
+        end,
+
         cssls = function()
             require('lspconfig').cssls.setup({
                 capabilities = capabilities,
@@ -76,7 +83,6 @@ require('mason-lspconfig').setup({
         svelte = function()
             require('lspconfig').svelte.setup({
                 capabilities = capabilities,
-                filetypes = { 'svelte', 'twig', 'html', },
             })
         end,
     },
